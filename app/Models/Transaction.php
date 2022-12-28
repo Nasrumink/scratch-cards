@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\ModelFilters\ScratchCardFilter;
+use App\ModelFilters\TransactionFilter;
 use EloquentFilter\Filterable;
 
-class ScratchCard extends Model
+class Transaction extends Model
 {
     use Filterable;
     protected $primaryKey = 'id';
     protected $keyType = 'string';
+
 }

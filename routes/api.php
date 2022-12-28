@@ -29,4 +29,5 @@ Route::post('/auth/login', [\App\Http\Controllers\AuthController::class, 'loginU
 Route::group(['prefix' => 'v1/',  'namespace' => '\App\Http\Controllers'], function () {
     Route::resource('user', UserController::class);
     Route::resource('scratch-card', ScratchCardController::class);
+    Route::resource('transaction', TransactionController::class);
 });

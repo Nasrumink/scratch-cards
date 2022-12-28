@@ -39,7 +39,7 @@ class ScratchCardController extends Controller
         try {
             $unused_cards = ScratchCard::where('is_scratched',false)->where('is_active',true)->count();
             
-            if($unused_cards >= $request->number_of_scratch_cards) {
+            if($unused_cards >= $request->number_of_scratch_cards) { //this will be a bug 100 unused card already present, if 101 is passed then it will create 101 scratch cards.
                 return response()->json([
                     'error' => false,
                     'message' => "$unused_cards number of active scratch cards still exists in the DB. Did not create any new scratch card",
