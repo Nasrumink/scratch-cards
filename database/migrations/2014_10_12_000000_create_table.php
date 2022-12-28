@@ -20,7 +20,8 @@ class CreateTable extends Migration
             $table->date('expiry_date');
             $table->boolean('is_scratched')->default(false);
             $table->boolean('is_active')->default(true);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
         DB::statement('ALTER TABLE scratch_cards ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
 
@@ -31,7 +32,8 @@ class CreateTable extends Migration
             $table->timestamp('transaction_date');
             $table->uuid('user_id');
             $table->uuid('scratch_card_id');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
         DB::statement('ALTER TABLE transactions ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
     }
